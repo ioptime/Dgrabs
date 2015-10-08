@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/lytDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <ScrollView
+            android:id="@+id/lytContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/adView" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Background_main"
+                android:padding="@dimen/padding_main" >
+
+                <LinearLayout
+                    android:id="@+id/lytMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/Background_main_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_main_content" >
+
+                    <LinearLayout
+                        android:id="@+id/lytMedia"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/thumb_height" >
+
+                        <ImageView
+                            android:id="@+id/imgThumbnail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/Background_main"
+                            android:contentDescription="@string/app_name"
+                            android:scaleType="centerCrop" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/lblCompany"
+                        style="@android:style/TextAppearance.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_top_title"
+                        android:textColor="@color/text_sub_title" />
+
+                    <TextView
+                        android:id="@+id/lblTitle"
+                        style="@android:style/TextAppearance.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_title"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/lblAddress"
+                        style="@android:style/TextAppearance.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_sub_title" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lytMainPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lytMain"
+                    android:layout_marginTop="@dimen/padding_main_content"
+                    android:background="@color/Background_main_content"
+                    android:visibility="gone" >
+
+                    <LinearLayout
+                        android:id="@+id/lytContentPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/Background_main_content"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/lblAfterDiscount"
+                            style="@android:style/TextAppearance.Large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:paddingBottom="@dimen/padding_detail_price"
+                            android:paddingTop="@dimen/padding_detail_price"
+                            android:textColor="@color/text_deal_detail"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/imgDivider"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/line_height"
+                            android:background="@color/divider"
+                            android:contentDescription="@string/app_name" />
+
+                        <LinearLayout
+                            android:id="@+id/lytPriceDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/Background_main_content"
+                            android:orientation="horizontal" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/padding_detail_price" >
+
+                                <TextView
+                                    android:id="@+id/lblStart"
+                                    style="@android:style/TextAppearance.Small"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/lbl_start"
+                                    android:textColor="@color/text_sub_title"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/lblStartValue"
+                                    style="@android:style/TextAppearance.Large"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/text_deal_detail"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/imgDivider1"
+                                android:layout_width="@dimen/line_height"
+                                android:layout_height="match_parent"
+                                android:background="@color/divider"
+                                android:contentDescription="@string/app_name" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/padding_detail_price" >
+
+                                <TextView
+                                    style="@android:style/TextAppearance.Small"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/lbl_disc"
+                                    android:textColor="@color/text_sub_title"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/lblDiscountValue"
+                                    style="@android:style/TextAppearance.Large"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/text_disc"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="@dimen/line_height"
+                                android:layout_height="match_parent"
+                                android:background="@color/divider"
+                                android:contentDescription="@string/app_name" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/padding_detail_price" >
+
+                                <TextView
+                                    android:id="@+id/lblSave"
+                                    style="@android:style/TextAppearance.Small"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/lbl_save"
+                                    android:textColor="@color/text_sub_title"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/lblSaveValue"
+                                    style="@android:style/TextAppearance.Large"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/text_deal_detail"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lytDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lytMain"
+                    android:layout_marginTop="@dimen/padding_main_content"
+                    android:background="@color/Background_main_content" >
+
+                    <LinearLayout
+                        android:id="@+id/lytContentDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/btnGet"
+                        android:background="@color/Background_main_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_main_content" >
+
+                        <LinearLayout
+                            android:id="@+id/lytStartDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/Background_main_content"
+                            android:orientation="horizontal" >
+
+                           <!--  <TextView
+                                android:id="@+id/lblStartDate"
+                                style="@android:style/TextAppearance.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_date_start"
+                                android:textColor="@color/text_sub_title"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/lblStartDateValue"
+                                style="@android:style/TextAppearance.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_sub_title" /> -->
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lytEndDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/Background_main_content"
+                            android:orientation="horizontal" >
+
+                           <!--  <TextView
+                                android:id="@+id/lblEndDate"
+                                style="@android:style/TextAppearance.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lbl_date_end"
+                                android:textColor="@color/text_sub_title"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/lblEndDateValue"
+                                style="@android:style/TextAppearance.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_sub_title" /> -->
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnGet"
+                        style="@android:style/TextAppearance.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/padding_main_content"
+                        android:background="@drawable/apptheme_btn_default_holo_light"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
+                        android:text="@string/btn_get_it"
+                        android:textColor="@color/text_btn" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lytDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/lytDate"
+                    android:layout_marginTop="@dimen/padding_main_content"
+                    android:background="@color/Background_main_content"
+                    android:padding="@dimen/padding_main"
+                    android:visibility="gone" >
+
+                    <ProgressBar
+                        android:id="@+id/prgLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true" />
+
+                    <WebView
+                        android:id="@+id/webDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/prgLoading" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+        <!--
+             com.google.android.gms.ads.AdView
+		    android:id="@+id/adView"
+	       	android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        ads:adUnitId="@string/admob_id"
+	        ads:adSize="SMART_BANNER"
+      		android:visibility="gone"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"/-->
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lytRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/lblAlert"
+            style="@android:style/TextAppearance.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_internet_connection"
+            android:textColor="@color/text_sub_title" />
+
+        <Button
+            android:id="@+id/btnRetry"
+            style="@android:style/TextAppearance.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/apptheme_btn_default_holo_light"
+            android:text="@string/retry"
+            android:textColor="@color/text_btn" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblNoResult"
+        style="@android:style/TextAppearance.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/lbl_no_result"
+        android:textColor="@color/text_sub_title"
+        android:visibility="gone" />
+
+</RelativeLayout>

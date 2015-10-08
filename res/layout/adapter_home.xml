@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/Background_main"
+    android:paddingLeft="@dimen/padding_main"
+    android:paddingRight="@dimen/padding_main"
+    android:paddingTop="@dimen/padding_main" >
+
+    <RelativeLayout
+        android:id="@+id/lytMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Background_main_content"
+        android:padding="@dimen/padding_main_content" >
+
+        <FrameLayout
+            android:id="@+id/lytImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Background_main" >
+
+            <ImageView
+                android:id="@+id/imgThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/thumb_height"
+                android:background="@color/Background_main"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:id="@+id/lytTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:layout_marginTop="@dimen/margin_top_home_deal"
+                android:background="@color/home_layout_price"
+                android:tag="ioptime"
+                android:visibility="invisible" >
+
+                <TextView
+                    android:id="@+id/lblAfterDiscountValue"
+                    style="@android:style/TextAppearance.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_left_home_deal"
+                    android:textColor="@color/text_deal"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/lblStartValue"
+                    style="@android:style/TextAppearance.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_home_start_deal"
+                    android:layout_toRightOf="@+id/lblAfterDiscountValue"
+                    android:paddingRight="@dimen/margin_left_home_deal"
+                    android:textColor="@color/text_deal" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lytImage"
+            android:layout_marginTop="@dimen/margin_top_title"
+            android:background="@color/Background_main_content" >
+
+            <TextView
+                android:id="@+id/lblTitle"
+                style="@android:style/TextAppearance.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/icMarker"
+                android:textColor="@color/text_title"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/icMarker"
+                android:layout_width="@dimen/marker_size"
+                android:layout_height="@dimen/marker_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgDivider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:layout_below="@+id/lytMain"
+        android:background="@color/divider"
+        android:contentDescription="@string/app_name" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgDivider"
+        android:layout_centerVertical="true"
+        android:background="@color/Background_main_content"
+        android:padding="@dimen/padding_main_content" >
+
+       <!--  <TextView
+            android:id="@+id/lblEndDateTxt"
+            style="@android:style/TextAppearance.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/lbl_date_end"
+            android:textColor="@color/text_sub_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblEndDate"
+            style="@android:style/TextAppearance.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/lblEndDateTxt"
+            android:textColor="@color/text_sub_title" /> -->
+    </RelativeLayout>
+
+</RelativeLayout>

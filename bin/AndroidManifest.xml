@@ -1,0 +1,109 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="6" android:versionName="1.3.0" package="com.ioptime.dgrabs">
+
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="21"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
+    <!-- Creates a custom permission so only this app can receive its messages. -->
+    <permission android:name="com.ioptime.dgrabs.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.ioptime.dgrabs.permission.C2D_MESSAGE"/>
+
+    <!-- Permission to vibrate -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!-- Allows the API to access Google web-based services -->
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+
+    <!-- External storage for caching. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!-- My Location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- Allows applications to access information about networks -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <!-- change com.ioptime.dgrabs with your own package name -->
+    <permission android:name="com.ioptime.dgrabs.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.ioptime.dgrabs.permission.MAPS_RECEIVE"/>
+
+    <!-- Maps API needs OpenGL ES 2.0. -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <!-- End of copy. -->
+
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/Theme.Apptheme">
+
+        <!-- Admob -->
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+
+        <!-- You must insert your own Google Maps for Android API v2 key in here. -->
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBGbxbsqeRc8PbTMHoudFCfa7PnPRV_HpY"/>
+
+        <activity android:label="@string/app_name" android:name="com.ioptime.dgrabs.ActivitySplash" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/Theme.Apptheme.NoActionBar">
+           
+        </activity>
+        <activity android:label="@string/page_about" android:name="com.ioptime.dgrabs.ActivityAbout"/>
+        <activity android:label="@string/page_category" android:name="com.ioptime.dgrabs.ActivityCategory" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.ioptime.dgrabs.ActivityCategoryList" android:screenOrientation="portrait"/>
+        <activity android:label="@string/page_around_you" android:name="com.ioptime.dgrabs.ActivityAroundYou" android:screenOrientation="portrait"/>
+        <activity android:label="@string/page_around_you" android:name="com.ioptime.dgrabs.ActivityDirection"/>
+        <activity android:label="@string/page_detail" android:name="com.ioptime.dgrabs.ActivityDetail" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.ioptime.dgrabs.ActivityHome" android:screenOrientation="portrait">
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="android.app.default_searchable" android:value="com.ioptime.dgrabs.ActivitySearch"/>
+        </activity>
+        <activity android:name="com.ioptime.dgrabs.ActivitySearch" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:label="@string/page_setting" android:name="com.ioptime.dgrabs.ActivitySetting" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.ioptime.dgrabs.ActivityBrowser" android:screenOrientation="portrait" android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data android:name="android.support.UI_OPTIONS" android:value="splitActionBarWhenNarrow"/>
+        </activity>
+        <activity android:label="@string/page_share" android:name="com.ioptime.dgrabs.ActivityShare"/>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
+        <provider android:authorities="com.facebook.app.NativeAppCallContentProvider568623936560607" android:exported="true" android:name="com.facebook.NativeAppCallContentProvider"/>
+        <provider android:authorities="com.ioptime.dgrabs.libraries.SuggestionProvider" android:exported="false" android:name="com.ioptime.dgrabs.libraries.SuggestionProvider"/>
+
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:name="com.google.android.gms.ads.AdActivity"/>
+
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+
+                <category android:name="com.ioptime.dgrabs"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.ioptime.dgrabs.GCMIntentService"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="de002f4a89c823361e1bad9135c4fd99fcd94b16"/>
+    </application>
+
+</manifest>

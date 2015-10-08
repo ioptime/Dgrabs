@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerInParent="true"
+    android:background="@color/splash_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/splash_padding_left"
+    android:paddingRight="@dimen/splash_padding_right" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:gravity="center"
+        android:src="@drawable/icon" />
+
+    <ProgressBar
+        android:id="@+id/prgLoading"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="@dimen/progress_width"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:max="100"
+        android:progressDrawable="@drawable/apptheme_progress_horizontal_holo_light" />
+
+</LinearLayout>
