@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Saeed/Desktop/Logo%20Quiz%20App/android-support-v7-appcompat/build/intermediates/bundles/debug/res/values-w720dp/values-w720dp.xml -->
+    <eat-comment/>
+    <bool name="abc_action_bar_expanded_action_views_exclusive">false</bool>
+</resources>
